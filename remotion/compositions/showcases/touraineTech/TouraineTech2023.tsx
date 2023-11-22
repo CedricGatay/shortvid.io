@@ -21,7 +21,7 @@ export const TouraineTech2023: React.FC<DefaultProps> = ({
 			<BackgroundTriangle primaryColor={'#6abfad'} secondaryColor={'#222333'} />
 			<Speakers speakers={speakers} />
 			<TalkTitle title={title} />
-			<Details date={date} time={time} location={location} />
+			
 		</AbsoluteFill>
 	);
 };
