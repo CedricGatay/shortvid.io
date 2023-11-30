@@ -12,13 +12,19 @@ import {Logo} from './Logo';
 import {Speakers} from './Speakers';
 import {TalkTitle} from './TalkTitle';
 import { z } from 'zod';
+import { Multithreaded } from './MultiThreaded';
+import { useLottie } from '../../../hooks/useLottie';
+import { Lottie } from '@remotion/lottie';
 const {fontFamily} = loadFont();
 
 export const TNT24 = ({
+	day,
 	title,
 	subtitle,
 	header,
 }: z.infer<typeof TNT24Schema> ) => {
+	const snow = useLottie('lf20_kZx06J');
+
 	return (
 		<AbsoluteFill
 			style={{
@@ -28,7 +34,22 @@ export const TNT24 = ({
 				textTransform: 'uppercase',
 			}}
 		>
+			<Sequence from={0}>
+				<Multithreaded day={day}></Multithreaded>
+			</Sequence>
 			<Sequence>
+			<Lottie
+				style={{
+					position: "absolute",
+					width: '100%',
+					height: '100%',
+					filter: 'none',
+				}}
+				loop={true}
+				animationData={snow}
+			/>
+			</Sequence>
+			{/* <Sequence from={120}>
 				<BackgroundFiller
 					imageUrl={staticFile(
 						'/images/showcases/tnt24/gray_bg.jpg',
@@ -39,17 +60,17 @@ export const TNT24 = ({
 						height: '100%',
 					}}
 				/>
-			</Sequence>
-			<Sequence from={30}>
+			</Sequence> */}
+			<Sequence from={130}>
 				<TNTLeft />
 			</Sequence>
-			<Sequence from={110}>
+			<Sequence from={150}>
 				<Android />
 			</Sequence>
-			<Sequence>
+			<Sequence from={100}>
 				<Logo />
 			</Sequence>
-			<Sequence name="Speakers" from={30}>
+			<Sequence name="Speakers" from={100}>
 				<Speakers speakers={header} />
 				<TalkTitle title={subtitle} style={{}} />
 			</Sequence>

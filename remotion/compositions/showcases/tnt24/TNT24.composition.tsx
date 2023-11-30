@@ -15,6 +15,7 @@ export const TNT24Header = z.object( {
 });
 
 export const TNT24Schema = z.object({
+	day: z.number(),
 	title: z.string(),
 	subtitle: z.string(),
 	header: z.array(TNT24Header)
@@ -27,12 +28,13 @@ export const TNT24Composition = () => {
 			<Composition
 				id="TNT24Talk"
 				component={TNT24}
-				durationInFrames={300}
+				durationInFrames={360}
 				fps={30}
 				width={1280}
 				height={720}
 				schema={TNT24Schema}
 				defaultProps={{
+					day: 24,
 					title: "Patrick Martineau",
 					subtitle: "Il nous accompagne depuis la première édition : Patrick Martineau",
 					header: [

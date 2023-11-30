@@ -29,6 +29,7 @@ export const Android = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
 				right: 100,
 				top: fall,
 				transform: `rotate(${rotate}deg)`,
+				zIndex: 99,
 			}}
 		/>
 	);
