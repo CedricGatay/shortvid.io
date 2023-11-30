@@ -16,7 +16,7 @@ export const TNTLeft = () => {
 
 	return (
 		<Img
-			src={staticFile('/images/showcases/tnt24/left.png')}
+			src={staticFile('/images/showcases/tnt24/lutin.png')}
 			width={logoWidth}
 			height="auto"
 			style={{

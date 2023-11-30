@@ -39,7 +39,7 @@ export const TNT24Phrase = ({title}: DefaultProps) => {
 			<Sequence>
 				<BackgroundFiller
 					imageUrl={staticFile(
-						'/images/showcases/tnt24/background.png',
+						'/images/showcases/tnt24/gray_bg.jpg',
 					)}
 					style={{
 						position: 'absolute',

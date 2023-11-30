@@ -21,7 +21,7 @@ export const Android = ({isTotemDisplayMode = false}: ComponentDisplayMode) => {
 
 	return (
 		<Img
-			src={staticFile('/images/showcases/tnt24/fall.png')}
+			src={staticFile('/images/showcases/tnt24/goffeur_lumière.png')}
 			width={logoWidth}
 			height="auto"
 			style={{

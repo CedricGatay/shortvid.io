@@ -11,10 +11,11 @@ import {
 import {Text} from '../../../design/atoms/Text';
 import {AvatarWithCaption} from '../../../design/molecules/AvatarWithCaption';
 import {Speaker} from '../../../types/defaultProps.types';
-
+import { TNT24Header } from './TNT24.composition';
+import { z } from 'zod';
 const {fontFamily} = loadFont();
 
-export const Speakers: React.FC<{speakers: Speaker[]}> = ({speakers}) => {
+export const Speakers: React.FC<{speakers: z.infer<typeof TNT24Header>[]}> = ({speakers}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 
@@ -59,7 +60,7 @@ export const Speakers: React.FC<{speakers: Speaker[]}> = ({speakers}) => {
 					>
 						<AvatarWithCaption
 							avatarPictureUrl={
-								speaker.picture ||
+								speaker.url ||
 								staticFile(
 									'images/showcases/campingDesSpeakers/campingDesSpeakersLogo.png',
 								)

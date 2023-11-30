@@ -8,6 +8,19 @@ import {TNT24Loop} from './TNT24Loop';
 import { TNT24LoopTotem} from './TNT24LoopTotem';
 import { TNT24Phrase} from './TNT24Phrase';
 
+import { z } from "zod";
+export const TNT24Header = z.object( {
+	name: z.string(),
+	url: z.string()
+});
+
+export const TNT24Schema = z.object({
+	title: z.string(),
+	subtitle: z.string(),
+	header: z.array(TNT24Header)
+});
+
+
 export const TNT24Composition = () => {
 	return (
 		<Folder name="TNT24">
@@ -18,9 +31,19 @@ export const TNT24Composition = () => {
 				fps={30}
 				width={1280}
 				height={720}
-				defaultProps={defaultTalkValues}
+				schema={TNT24Schema}
+				defaultProps={{
+					title: "Patrick Martineau",
+					subtitle: "Il nous accompagne depuis la première édition : Patrick Martineau",
+					header: [
+						{
+							name: "Patrick Martineau",
+							url: "https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaAdA7AEVdTCCBlcMZVNEFmUXpQi3DGmfyFl4zg1QL52S9MF9Fy5G64aLb8o3HH6683-hcVSsY2nfAtS7u0HMmrm4QJR=w3600-h2080"
+						}
+					]
+				}}
 			/>
-			<Composition
+			{/* <Composition
 				id="TNT24TalkLoop"
 				component={TNT24Loop}
 				durationInFrames={350}
@@ -46,7 +69,7 @@ export const TNT24Composition = () => {
 				width={1280}
 				height={720}
 				defaultProps={defaultTalkValues}
-			/>
+			/> */}
 		</Folder>
 	);
 };
